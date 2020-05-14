@@ -4,6 +4,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
@@ -16,6 +18,10 @@ import { AreaComponent } from './widgets/area/area.component';
 import {HighchartsChartModule} from 'highcharts-angular';
 import { CardComponent } from './widgets/card/card.component';
 import { PieComponent } from './widgets/pie/pie.component';
+import { AgGridModule } from 'ag-grid-angular';
+
+import { TableComponent } from './widgets/table/table.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +30,8 @@ import { PieComponent } from './widgets/pie/pie.component';
     SidebarComponent,
     AreaComponent,
     CardComponent,
-    PieComponent
+    PieComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +43,9 @@ import { PieComponent } from './widgets/pie/pie.component';
     MatMenuModule,
     MatListModule,
     RouterModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    AgGridModule.withComponents([]),
+    HttpClientModule
   ],
   exports: [
     HeaderComponent,
@@ -44,7 +53,12 @@ import { PieComponent } from './widgets/pie/pie.component';
     SidebarComponent,
     AreaComponent,
     CardComponent,
-    PieComponent
+    PieComponent,
+    TableComponent
+  ],
+  providers: [
+    HttpClient,
+    HttpClientModule
   ]
 })
 export class SharedModule { }
